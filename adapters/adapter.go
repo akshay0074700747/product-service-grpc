@@ -40,6 +40,7 @@ func (product *ProductAdapter) IncrementStock(id uint, stock int) (entities.Prod
 
 func (product *ProductAdapter) DecrementStock(id uint, stock int) (entities.Products, error) {
 
+	fmt.Println("jhsafkjdfj")
 	var res entities.Products
 	query := "UPDATE products SET stock = stock - $1 WHERE id = $2"
 
