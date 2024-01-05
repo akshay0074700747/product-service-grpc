@@ -3,6 +3,7 @@ package service
 import (
 	"context"
 	"fmt"
+	"log"
 
 	"github.com/akshay0074700747/products-service/adapters"
 	"github.com/akshay0074700747/products-service/entities"
@@ -122,4 +123,25 @@ func (product *ProductService) UpdateStock(ctx context.Context, req *pb.UpdateSt
 	}
 
 	return res, nil
+}
+
+func (product *ProductService) GetArrayofProducts(ctx context.Context, req *pb.ArrayofProductsRequest) (*pb.GetAllProductsResponce, error) {
+
+	var products []*pb.AddProductResponce
+
+	for _, id := range req.Id {
+		prod, err := product.Adapter.GetProduct(uint(id))
+		if err != nil {
+			log.Println(err.Error())
+			return nil, err
+		}
+		products = append(products, &pb.AddProductResponce{
+			Id:    uint32(prod.ID),
+			Name:  prod.Name,
+			Price: int32(prod.Price),
+			Stock: int32(prod.Stock),
+		})
+	}
+
+	return &pb.GetAllProductsResponce{Products: products}, nil
 }

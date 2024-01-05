@@ -2,7 +2,7 @@ module github.com/akshay0074700747/products-service
 
 go 1.21.5
 
-require github.com/akshay0074700747/proto-files-for-microservices v0.0.0-20231226084919-d5a5f8433602
+require github.com/akshay0074700747/proto-files-for-microservices v0.0.0-20240101143744-99d1cae2eb85
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
