@@ -8,6 +8,8 @@ RUN echo product-service
 
 RUN echo product-service
 
+RUN echo product-service
+
 RUN git clone https://github.com/akshay0074700747/product-service-grpc.git .
 
 RUN go mod download
